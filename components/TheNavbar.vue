@@ -4,7 +4,7 @@
     <v-btn>projects</v-btn>
     <v-btn>github</v-btn>
     <v-spacer></v-spacer>
-    <AccountMenu />
+    <AccountMenu/>
   </v-app-bar>
 </template>
 

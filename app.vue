@@ -3,7 +3,7 @@
     <Transition>
       <div>
         <div>
-          <TheNavbar />
+          <TheNavbar/>
         </div>
         <v-main>
           <NuxtLayout>
