@@ -1,5 +1,7 @@
 <template>
-  <div>
-    <h1>welcome</h1>
-  </div>
+  <a>home</a>
 </template>
+
+<script lang="ls">
+
+</script>

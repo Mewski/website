@@ -13,4 +13,5 @@ export default defineNuxtConfig({
         strict: true,
         shim: false,
     },
+    ssr: true,
 })
