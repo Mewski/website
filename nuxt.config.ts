@@ -13,5 +13,8 @@ export default defineNuxtConfig({
         strict: true,
         shim: false,
     },
-    ssr: true,
+    modules: [
+        '@nuxtjs/supabase'
+    ],
+    ssr: false,
 })

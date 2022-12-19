@@ -1,5 +1,5 @@
 <template>
-  <div class="mr-2">
+  <div v-if="!user" class="mr-2">
     <v-menu v-model="menu" :close-on-content-click="false">
       <template v-slot:activator="{ props }">
         <v-btn min-height="44px" v-bind="props">
@@ -15,7 +15,8 @@
 
       <v-card elevation="5" min-width="300">
         <v-list>
-          <v-list-item prepend-avatar="https://cdn.discordapp.com/avatars/713865748199506036/75ef7b759692c3c0713494a87b16b542.png?size=1024">
+          <v-list-item
+              prepend-avatar="https://cdn.discordapp.com/avatars/713865748199506036/75ef7b759692c3c0713494a87b16b542.png?size=1024">
             <v-list-item-title>mewski</v-list-item-title>
             <v-list-item-subtitle>lead developer</v-list-item-subtitle>
           </v-list-item>
@@ -30,6 +31,9 @@
       </v-card>
     </v-menu>
   </div>
+  <div v-else>
+    <v-btn class="mr-3" color="primary" elevation="2" to="/login" variant="outlined">login</v-btn>
+  </div>
 </template>
 
 <script lang="ts">
@@ -40,6 +44,12 @@ export default {
     }
   },
 }
+</script>
+
+<script lang="ts" setup>
+import {useSupabaseUser} from "#imports";
+
+const user = useSupabaseUser();
 </script>
 
 <style scoped>
