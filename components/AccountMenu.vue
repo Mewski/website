@@ -1,5 +1,5 @@
 <template>
-  <div v-if="!user" class="mr-2">
+  <div v-if="user" class="mr-2">
     <v-menu v-model="menu" :close-on-content-click="false">
       <template v-slot:activator="{ props }">
         <v-btn min-height="44px" v-bind="props">
@@ -27,29 +27,34 @@
           <v-list-item link>
             <v-list-item-title>settings</v-list-item-title>
           </v-list-item>
+          <v-list-item link>
+            <v-list-item-title>logout</v-list-item-title>
+          </v-list-item>
         </v-list>
       </v-card>
     </v-menu>
   </div>
   <div v-else>
-    <v-btn class="mr-3" color="primary" elevation="2" to="/login" variant="outlined">login</v-btn>
+    <v-btn class="mr-3" color="primary" elevation="2" prepend-icon="mdi-account" to="/login" variant="outlined">login
+    </v-btn>
   </div>
 </template>
 
 <script lang="ts">
-export default {
-  data() {
-    return {
-      menu: false,
-    }
-  },
-}
-</script>
-
-<script lang="ts" setup>
+import {defineComponent, ref} from 'vue';
 import {useSupabaseUser} from "#imports";
 
-const user = useSupabaseUser();
+export default defineComponent({
+  setup() {
+    const menu = ref(false);
+    const user = useSupabaseUser();
+
+    return {
+      menu,
+      user,
+    };
+  },
+});
 </script>
 
 <style scoped>

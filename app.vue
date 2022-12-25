@@ -5,7 +5,7 @@
         <div>
           <TheNavbar/>
         </div>
-        <v-main>
+        <v-main style="height: 100vh">
           <NuxtLayout>
             <NuxtPage/>
           </NuxtLayout>
@@ -13,11 +13,13 @@
       </div>
     </Transition>
   </v-app>
-  <v-app v-else />
+  <v-app v-else/>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import {defineComponent} from 'vue'
+
+export default defineComponent({
   data() {
     return {
       busy: true,
@@ -31,8 +33,9 @@ export default {
       this.busy = true
     },
   }
-}
+})
 </script>
 
 <style scoped>
+
 </style>
